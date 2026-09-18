@@ -1,539 +1,520 @@
-# Customer Churn Prediction Using Data Mining and Machine Learning
+# 📡 Quantum-Enhanced Telecom Customer Churn Prediction
 
-## Project Overview
+## 🚀 Project Overview
 
-Customer churn is a major challenge for telecom companies. When customers stop using a company's services and move to another provider, it is known as **customer churn**.
+**Quantum-Enhanced Telecom Customer Churn Prediction** is an advanced machine learning project that predicts the probability of a telecom customer leaving a service provider (**customer churn**).
 
-This project develops a **machine learning-based Customer Churn Prediction system** that analyzes telecom customer information and predicts whether a customer is likely to **churn (leave)** or **stay** with the company.
+The project combines:
 
-The project combines **Data Mining, Exploratory Data Analysis, Data Preprocessing, and Machine Learning Classification** techniques to identify patterns associated with customer churn.
+* 📊 Telecom customer data
+* 🧹 Data preprocessing
+* 🎯 Feature selection
+* ⚛️ **4-Qubit Quantum Circuit**
+* 🧠 **Variational Quantum Classifier (VQC)**
+* ⚙️ **Classical Adam Optimizer**
+* 📈 Churn probability prediction
+* 🔍 **SHAP Explainable AI**
 
-The system also compares multiple machine learning algorithms and identifies the important customer characteristics that contribute to churn prediction.
-
----
-
-## Project Objective
-
-The main objectives of this project are:
-
-* To analyze telecom customer behavior.
-* To identify patterns associated with customer churn.
-* To preprocess and transform customer data for machine learning.
-* To build classification models for predicting customer churn.
-* To compare different machine learning algorithms.
-* To evaluate models using multiple performance metrics.
-* To identify important features influencing churn predictions.
-* To provide customer-level churn predictions.
-* To provide useful business recommendations for customer retention.
+The main objective is to explore how **Quantum Machine Learning (QML)** can be integrated with classical machine-learning techniques to create an interpretable customer churn prediction system.
 
 ---
 
-## Dataset
-
-The project uses the **Telco Customer Churn Dataset**.
-
-The dataset contains information about approximately **7,043 telecom customers** and includes customer account, service, and demographic information.
-
-### Important Features
-
-| Feature           | Description                                             |
-| ----------------- | ------------------------------------------------------- |
-| `customerID`      | Unique customer identifier                              |
-| `gender`          | Customer gender                                         |
-| `SeniorCitizen`   | Indicates whether the customer is a senior citizen      |
-| `Partner`         | Whether the customer has a partner                      |
-| `Dependents`      | Whether the customer has dependents                     |
-| `tenure`          | Number of months the customer has used the service      |
-| `PhoneService`    | Whether the customer has phone service                  |
-| `InternetService` | Type of internet service                                |
-| `Contract`        | Type of customer contract                               |
-| `PaymentMethod`   | Customer payment method                                 |
-| `MonthlyCharges`  | Monthly amount charged to the customer                  |
-| `TotalCharges`    | Total amount charged to the customer                    |
-| `Churn`           | Target variable indicating whether the customer churned |
-
-### Target Variable
-
-The target variable is:
-
-`Churn`
-
-It is converted into:
-
-* `0` → Customer stayed
-* `1` → Customer churned
-
----
-
-## Technologies Used
-
-* **Python**
-* **Pandas**
-* **NumPy**
-* **Matplotlib**
-* **Seaborn**
-* **Scikit-learn**
-* **Google Colab / Jupyter Notebook**
-* **GitHub**
-
----
-
-# Project Workflow
-
-## 1. Data Collection
-
-The Telco Customer Churn dataset is loaded into the Python environment using Pandas.
-
-The dataset contains customer information that can be used to understand and predict churn behavior.
-
----
-
-## 2. Data Understanding
-
-The dataset is analyzed using:
-
-* Dataset shape
-* Column information
-* Data types
-* Statistical summary
-* Unique values
-* Missing-value analysis
-* Duplicate-value analysis
-
-This step helps understand the structure and quality of the dataset before applying machine learning.
-
----
-
-## 3. Data Preprocessing
-
-The following preprocessing steps are performed:
-
-### Customer ID Removal
-
-The `customerID` column is removed because it is only an identifier and does not provide meaningful information for predicting churn.
-
-### Handling Missing Values
-
-The `TotalCharges` column is converted into a numerical format.
-
-Any missing values are handled using the median value.
-
-### Target Encoding
-
-The `Churn` column is converted into numerical values:
+## 🔄 Project Workflow
 
 ```text
-No  → 0
-Yes → 1
-```
-
-### Categorical Encoding
-
-Categorical features are converted into numerical representations using **One-Hot Encoding** so that machine learning algorithms can process them.
-
----
-
-## 4. Exploratory Data Analysis
-
-Exploratory Data Analysis (EDA) is performed to understand customer behavior and identify patterns related to churn.
-
-The project analyzes:
-
-* Overall churn distribution
-* Contract type vs churn
-* Internet service vs churn
-* Payment method vs churn
-* Tenure vs churn
-* Monthly charges vs churn
-* Total charges vs churn
-* Correlation between numerical features
-
-Visualizations are created using **Matplotlib and Seaborn**.
-
----
-
-## 5. Feature Selection
-
-The dataset is divided into:
-
-### Input Features (X)
-
-Customer characteristics such as:
-
-* Tenure
-* Contract
-* Internet Service
-* Monthly Charges
-* Total Charges
-* Payment Method
-* And other available customer attributes
-
-### Target Variable (y)
-
-```text
-Churn
-```
-
-The objective is to predict the target variable using the available customer features.
-
----
-
-## 6. Train-Test Split
-
-The dataset is divided into:
-
-* **80% Training Data**
-* **20% Testing Data**
-
-The training data is used to train the machine learning models, while the testing data is used to evaluate their performance on previously unseen customers.
-
-Stratified splitting is used to maintain the proportion of churned and non-churned customers in the training and testing datasets.
-
----
-
-# Machine Learning Models
-
-Three classification algorithms are implemented and compared.
-
-## 1. Logistic Regression
-
-Logistic Regression is used as a baseline classification model.
-
-It estimates the probability that a customer belongs to the churn or non-churn class.
-
----
-
-## 2. Decision Tree Classifier
-
-A Decision Tree creates a sequence of decision rules based on customer characteristics.
-
-For example, the model may learn patterns involving:
-
-```text
-Contract
-   ↓
-Tenure
-   ↓
-Monthly Charges
-   ↓
-Churn Prediction
-```
-
-Decision Trees are also relatively easy to interpret.
-
----
-
-## 3. Random Forest Classifier
-
-Random Forest combines multiple Decision Trees to produce a more robust prediction.
-
-Multiple trees make predictions independently, and their results are combined to produce the final classification.
-
-Random Forest is also used to determine feature importance.
-
----
-
-# Model Evaluation
-
-The models are evaluated using multiple performance metrics.
-
-## Accuracy
-
-Measures the percentage of total predictions that are correct.
-
-```text
-Accuracy =
-Correct Predictions / Total Predictions
-```
-
----
-
-## Precision
-
-Precision measures how many customers predicted as churners actually churned.
-
----
-
-## Recall
-
-Recall measures how many of the customers who actually churned were correctly identified by the model.
-
-Recall is particularly important in churn prediction because failing to identify a customer who is likely to leave may result in a lost customer.
-
----
-
-## F1-Score
-
-F1-score provides a balance between precision and recall.
-
-It is useful when both false positives and false negatives need to be considered.
-
----
-
-## ROC-AUC
-
-ROC-AUC measures the model's ability to distinguish between churned and non-churned customers.
-
-A higher ROC-AUC generally indicates better classification performance.
-
----
-
-## Confusion Matrix
-
-A confusion matrix is used to visualize:
-
-* True Positives
-* True Negatives
-* False Positives
-* False Negatives
-
-This provides a detailed view of the model's correct and incorrect predictions.
-
----
-
-# Model Comparison
-
-The performance of the three models is compared using:
-
-* Accuracy
-* Precision
-* Recall
-* F1-Score
-* ROC-AUC
-
-The model with the strongest overall performance based on the selected evaluation criteria is identified as the best-performing model.
-
-The actual performance values are generated directly by the notebook and should be used when presenting the project.
-
----
-
-# Feature Importance
-
-Random Forest feature importance is used to identify which customer characteristics contribute most to the model's predictions.
-
-Important predictive features may include variables related to:
-
-* Contract type
-* Tenure
-* Monthly charges
-* Total charges
-* Internet service
-* Payment method
-
-Feature importance indicates which variables the model relies on most for prediction. It does not necessarily mean that a feature directly causes customer churn.
-
----
-
-# Customer-Level Churn Prediction
-
-The project also provides a customer-level prediction function.
-
-A customer's information can be provided to the trained model, including:
-
-* Tenure
-* Monthly charges
-* Total charges
-* Contract type
-* Internet service
-* Payment method
-
-The system then produces:
-
-```text
-Churn Prediction
-+
+Telecom Data
+     ↓
+Preprocessing
+     ↓
+Feature Selection
+     ↓
+4 Selected Features
+     ↓
+4-Qubit Quantum Circuit
+     ↓
+Variational Quantum Classifier (VQC)
+     ↓
+Classical Adam Optimizer
+     ↓
 Churn Probability
-```
-
-For example:
-
-```text
-Customer is likely to CHURN
-
-Churn Probability: XX%
-```
-
-The exact probability is generated by the trained machine learning model.
-
----
-
-# Business Insights
-
-The analysis can help telecom companies understand customer churn behavior.
-
-Potential observations include:
-
-* Month-to-month customers may have higher churn rates than customers with longer contracts.
-* Customers with shorter tenure may have a higher likelihood of churn.
-* Monthly charges can be associated with differences in churn behavior.
-* Internet service type can provide useful information for churn prediction.
-* Payment method can also provide predictive information.
-
-These patterns can help businesses identify customers who may require additional attention.
-
----
-
-# Business Recommendations
-
-Based on the analysis, telecom companies can:
-
-1. Identify customers with high churn probability.
-2. Provide personalized retention offers.
-3. Encourage month-to-month customers to move to longer-term contracts.
-4. Provide special offers to newer customers.
-5. Improve customer support for high-risk customers.
-6. Analyze pricing and service plans for customers with high churn probability.
-7. Use machine learning predictions as part of a customer retention strategy.
-
----
-
-# Project Architecture
-
-```text
-                 Telecom Customer Dataset
-                           |
-                           ↓
-                  Data Preprocessing
-                           |
-                           ↓
-                Exploratory Data Analysis
-                           |
-                           ↓
-                    Feature Encoding
-                           |
-                           ↓
-                    Train/Test Split
-                           |
-             ┌─────────────┼─────────────┐
-             ↓             ↓             ↓
-       Logistic        Decision       Random
-       Regression        Tree          Forest
-             ↓             ↓             ↓
-             └─────────────┼─────────────┘
-                           ↓
-                    Model Evaluation
-                           |
-                           ↓
-                   Model Comparison
-                           |
-                           ↓
-                    Best Performing
-                        Model
-                           |
-             ┌─────────────┴─────────────┐
-             ↓                           ↓
-       Churn Prediction           Feature Importance
-             ↓
-       Business Insights
-             ↓
-       Customer Retention
+     ↓
+SHAP Explainable AI
 ```
 
 ---
 
-# Project Structure
+## 💡 Why Quantum Machine Learning?
 
-```text
-Customer-Churn-Prediction/
-│
-├── Customer_Churn_Prediction.ipynb
-│
-├── WA_Fn-UseC_-Telco-Customer-Churn.csv
-│
-└── README.md
-```
+Traditional churn prediction systems generally rely on classical algorithms such as:
 
-### File Description
-
-**`Customer_Churn_Prediction.ipynb`**
-
-Contains the complete Python implementation, including data preprocessing, visualization, model training, evaluation, and customer-level prediction.
-
-**`WA_Fn-UseC_-Telco-Customer-Churn.csv`**
-
-Contains the Telco Customer Churn dataset used for the project.
-
-**`README.md`**
-
-Contains project documentation, methodology, technologies, results, and business insights.
-
----
-
-# How to Run the Project
-
-## Option 1 — Google Colab
-
-1. Open Google Colab.
-2. Upload `Customer_Churn_Prediction.ipynb`.
-3. Upload `WA_Fn-UseC_-Telco-Customer-Churn.csv` when requested by the notebook.
-4. Run the notebook cells sequentially.
-5. Review the visualizations and model evaluation results.
-
-## Option 2 — Jupyter Notebook
-
-1. Install Python.
-2. Install the required libraries.
-3. Place the notebook and CSV dataset in the same folder.
-4. Open the notebook using Jupyter Notebook.
-5. Run the cells sequentially.
-
----
-
-# Key Learning Outcomes
-
-Through this project, the following concepts were implemented:
-
-* Data collection
-* Data cleaning
-* Missing-value handling
-* Exploratory Data Analysis
-* Data visualization
-* Feature engineering
-* Categorical encoding
-* Train-test splitting
-* Feature scaling
-* Classification algorithms
 * Logistic Regression
 * Decision Trees
 * Random Forest
-* Model evaluation
-* Confusion matrix
-* ROC-AUC
-* Feature importance
-* Customer-level prediction
-* Business interpretation of machine learning results
+* Support Vector Machines
+* Neural Networks
+
+This project introduces a **Quantum Machine Learning approach** by encoding selected customer features into a **4-qubit quantum circuit** and using a **Variational Quantum Classifier (VQC)** for classification.
+
+The quantum circuit provides an experimental framework for investigating the application of quantum computing techniques to telecom churn prediction.
+
+> **Note:** The project explores the application of quantum machine learning; it does not assume that the quantum model will automatically outperform classical machine-learning models.
 
 ---
 
-# Future Improvements
+## 🧩 Methodology
 
-The project can be further improved by:
+### 1. 📡 Telecom Dataset
 
-* Hyperparameter tuning using GridSearchCV or RandomizedSearchCV
-* Implementing XGBoost
-* Handling class imbalance using techniques such as SMOTE
-* Developing a web application for real-time predictions
-* Deploying the model using Flask or FastAPI
-* Creating an interactive Power BI dashboard
-* Integrating the prediction system with a telecom CRM system
-* Monitoring model performance using new customer data
+The system takes telecom customer information such as:
+
+* Customer demographics
+* Account information
+* Service usage
+* Contract details
+* Payment information
+* Monthly charges
+* Tenure
+* Churn status
+
+The target variable represents whether a customer has churned.
+
+---
+
+### 2. 🧹 Data Preprocessing
+
+The raw telecom data is prepared before being passed to the quantum model.
+
+Preprocessing may include:
+
+* Handling missing values
+* Removing unnecessary columns
+* Encoding categorical variables
+* Converting target labels
+* Feature scaling
+* Preparing training and testing datasets
 
 ---
 
-# Conclusion
+### 3. 🎯 Feature Selection
 
-This project demonstrates how **Data Mining and Machine Learning** can be used to analyze telecom customer behavior and predict customer churn.
+Relevant customer attributes are selected to reduce the dimensionality of the input.
 
-By analyzing customer characteristics and comparing multiple classification algorithms, the system can identify customers who are more likely to leave the service.
+The final pipeline uses:
 
-The predictions can help telecom companies take proactive retention measures, improve customer satisfaction, and potentially reduce customer loss.
+```text
+4 Selected Features
+        ↓
+4 Qubits
+```
+
+Each selected feature is mapped to a corresponding quantum qubit.
+
+This creates a direct relationship between the classical input features and the quantum circuit.
 
 ---
+
+## ⚛️ 4-Qubit Quantum Circuit
+
+The selected four features are encoded into a **4-qubit quantum circuit**.
+
+Conceptually:
+
+```text
+Feature 1 ──► Qubit 1 ──┐
+Feature 2 ──► Qubit 2 ──┤
+Feature 3 ──► Qubit 3 ──┤──► Variational Circuit ──► Measurement
+Feature 4 ──► Qubit 4 ──┘
+```
+
+The circuit applies parameterized quantum operations to transform the encoded information before measurement.
+
+---
+
+## 🧠 Variational Quantum Classifier (VQC)
+
+The project uses a **Variational Quantum Classifier (VQC)** for churn classification.
+
+The VQC consists of:
+
+* Feature encoding
+* Parameterized quantum gates
+* Variational layers
+* Quantum measurements
+* Classical optimization
+
+The parameters of the quantum circuit are optimized during training to minimize the classification loss.
+
+---
+
+## ⚙️ Classical Adam Optimizer
+
+The quantum circuit parameters are optimized using the **Adam optimizer**.
+
+```text
+Quantum Circuit
+       ↓
+Prediction
+       ↓
+Loss Calculation
+       ↓
+Adam Optimizer
+       ↓
+Updated Parameters
+       ↓
+Quantum Circuit
+```
+
+This hybrid structure combines:
+
+**Quantum computation + Classical optimization**
+
+---
+
+## 📈 Churn Probability
+
+Instead of only producing a binary churn label, the system generates a **churn probability**.
+
+Example:
+
+```text
+Customer
+   ↓
+Quantum Model
+   ↓
+Churn Probability = 0.82
+   ↓
+82% estimated probability of churn
+```
+
+This probability can be used to identify customers who may require retention strategies.
+
+---
+
+## 🔍 SHAP Explainable AI
+
+To make the model more interpretable, the project incorporates **SHAP (SHapley Additive exPlanations)**.
+
+SHAP helps explain how individual input features contribute to a model's prediction.
+
+Example:
+
+```text
+Customer Churn Probability
+          ↓
+       SHAP
+          ↓
+ ┌─────────────────────┐
+ │ Feature 1    +0.31  │
+ │ Feature 2    -0.12  │
+ │ Feature 3    +0.24  │
+ │ Feature 4    +0.08  │
+ └─────────────────────┘
+```
+
+This allows users to understand **which selected customer characteristics contributed to the prediction**.
+
+---
+
+## 🏗️ System Architecture
+
+```text
+                ┌───────────────────┐
+                │   Telecom Data    │
+                └─────────┬─────────┘
+                          ↓
+                ┌───────────────────┐
+                │  Preprocessing    │
+                └─────────┬─────────┘
+                          ↓
+                ┌───────────────────┐
+                │ Feature Selection │
+                └─────────┬─────────┘
+                          ↓
+                ┌───────────────────┐
+                │ 4 Selected        │
+                │ Features          │
+                └─────────┬─────────┘
+                          ↓
+                ┌───────────────────┐
+                │ 4-Qubit Quantum   │
+                │ Circuit            │
+                └─────────┬─────────┘
+                          ↓
+                ┌───────────────────┐
+                │       VQC         │
+                └─────────┬─────────┘
+                          ↓
+                ┌───────────────────┐
+                │ Adam Optimizer    │
+                └─────────┬─────────┘
+                          ↓
+                ┌───────────────────┐
+                │ Churn Probability │
+                └─────────┬─────────┘
+                          ↓
+                ┌───────────────────┐
+                │ SHAP Explainable  │
+                │ AI                │
+                └───────────────────┘
+```
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology           | Purpose                                  |
+| -------------------- | ---------------------------------------- |
+| Python               | Core implementation                      |
+| Pandas               | Data processing                          |
+| NumPy                | Numerical computation                    |
+| Scikit-learn         | Preprocessing and classical ML utilities |
+| Quantum ML Framework | Quantum circuit and VQC implementation   |
+| Adam Optimizer       | Parameter optimization                   |
+| SHAP                 | Explainable AI                           |
+| Matplotlib           | Visualization                            |
+| Jupyter Notebook     | Development and experimentation          |
+| Git & GitHub         | Version control                          |
+
+---
+
+## 📁 Project Structure
+
+```text
+quantum-telecom-churn/
+│
+├── data/
+│   └── telecom_data.csv
+│
+├── notebooks/
+│   └── quantum_churn_prediction.ipynb
+│
+├── src/
+│   ├── preprocessing.py
+│   ├── feature_selection.py
+│   ├── quantum_model.py
+│   ├── training.py
+│   └── explainability.py
+│
+├── results/
+│   ├── model_results/
+│   └── shap_plots/
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
+
+## ▶️ Installation
+
+Clone the repository:
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+```
+
+Move into the project directory:
+
+```bash
+cd quantum-telecom-churn
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🚀 Running the Project
+
+If the implementation is provided as a Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+Open:
+
+```text
+notebooks/quantum_churn_prediction.ipynb
+```
+
+Run the notebook cells sequentially:
+
+```text
+Load Dataset
+     ↓
+Preprocess Data
+     ↓
+Select Features
+     ↓
+Encode Features
+     ↓
+Construct 4-Qubit Circuit
+     ↓
+Train VQC
+     ↓
+Optimize Parameters
+     ↓
+Predict Churn Probability
+     ↓
+Generate SHAP Explanations
+```
+
+---
+
+## 📊 Expected Output
+
+The system produces:
+
+### Model Output
+
+```text
+Customer ID: XXXXX
+Churn Probability: 0.82
+Prediction: Churn
+```
+
+### Explainability Output
+
+SHAP visualizations can be generated to show the contribution of each selected feature to the prediction.
+
+---
+
+## 🌟 Key Features
+
+* ⚛️ **Quantum Machine Learning**
+* 🔹 4-Qubit Quantum Circuit
+* 🧠 Variational Quantum Classifier
+* ⚙️ Adam-based optimization
+* 📊 Telecom churn prediction
+* 📈 Probability-based prediction
+* 🔍 SHAP Explainable AI
+* 🔄 Hybrid quantum-classical workflow
+* 📉 Feature selection and dimensionality reduction
+
+---
+
+## 💡 Innovation
+
+The project introduces a **hybrid quantum-classical architecture** for telecom customer churn prediction.
+
+The key innovation is the integration of:
+
+```text
+Classical Telecom Data
+        +
+Feature Selection
+        +
+4-Qubit Quantum Circuit
+        +
+Variational Quantum Classifier
+        +
+Classical Optimization
+        +
+Explainable AI
+```
+
+Rather than using a conventional classification pipeline alone, the project investigates the use of a **variational quantum model** while retaining classical preprocessing, optimization, and explainability techniques.
+
+---
+
+## 🆕 Novelty
+
+The project combines multiple techniques into a single churn-prediction pipeline:
+
+1. **Dimensionality reduction to four relevant features**
+2. **Four-feature-to-four-qubit mapping**
+3. **Variational quantum classification**
+4. **Classical Adam optimization of quantum parameters**
+5. **Probability-based churn prediction**
+6. **SHAP-based interpretation**
+
+This creates a hybrid framework connecting **telecom analytics, quantum machine learning, and explainable AI**.
+
+---
+
+## 🎯 Applications
+
+The proposed system can be explored for:
+
+* Telecom customer retention
+* Customer behavior analysis
+* Churn-risk identification
+* Personalized retention strategies
+* Telecom business analytics
+* Quantum machine-learning research
+* Explainable predictive analytics
+
+---
+
+## 🔮 Future Scope
+
+Future development can include:
+
+* Increasing the number of qubits
+* Testing different quantum feature maps
+* Comparing multiple quantum classifiers
+* Comparing quantum and classical models
+* Testing quantum kernels
+* Running experiments on real quantum hardware
+* Hyperparameter optimization
+* Real-time churn prediction
+* Web-based prediction dashboard
+* Automated customer retention recommendations
+* Advanced explainability techniques
+
+---
+
+## 👥 Project Objective
+
+The primary objective is to develop and evaluate a **quantum-enhanced telecom churn prediction pipeline** that combines quantum machine learning with classical optimization and explainable AI.
+
+The project aims to investigate whether a compact quantum representation can be effectively integrated into a practical telecom analytics workflow.
+
+---
+
+## 📌 Disclaimer
+
+This project is an academic/research implementation for exploring **Quantum Machine Learning (QML)** and **Explainable AI (XAI)** in telecom churn prediction. Model performance depends on the dataset, preprocessing, feature selection, quantum circuit design, optimizer settings, and evaluation methodology.
+
+---
+
+## 📜 License
+
+This project is intended for academic and educational purposes.
+
+---
+
+## ⭐ Acknowledgements
+
+This project combines concepts from:
+
+* Machine Learning
+* Quantum Computing
+* Quantum Machine Learning
+* Telecom Analytics
+* Explainable Artificial Intelligence
+* Hybrid Quantum-Classical Computing
+
+**Built as an academic project exploring the intersection of Quantum Computing, Machine Learning, and Explainable AI.**
+
 
 # Author
 
 **Geetha**
-
-**B.Tech – Computer Science and Engineering**
-
-**Data Analytics and Visualization**
